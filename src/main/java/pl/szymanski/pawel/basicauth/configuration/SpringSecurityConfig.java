@@ -38,9 +38,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
                 .usersByUsernameQuery("select username, password, true"
-                        + " from apiclient where username='?'")
+                        + " from apiclient where username=?")
                 .authoritiesByUsernameQuery("select username, role"
-                        + " from apiclient where username='?'");
+                        + " from apiclient where username=?");
     }
 
     @Bean
