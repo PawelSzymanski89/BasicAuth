@@ -14,7 +14,7 @@ that you see browser question about user and password.
 ![log in image][logo]
 
 now please look at 
-[SpringSecurityConfig](\src\main\java\pl\szymanski\pawel\basicauth\configuration\SpringSecurityConfig.java)
+[SpringSecurityConfig](/src/main/java/pl/szymanski/pawel/basicauth/configuration/SpringSecurityConfig.java)
 and configure method: 
 
 
