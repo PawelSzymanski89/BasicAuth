@@ -75,6 +75,8 @@ Let's check our sample users in H2 database:
 we can do it by browser, just put go to adress: http://localhost:8080/h2-console/ and like you see now you dont have 
 browser request about user and password because we used .permitAll() method on /h2-console endpoint.
 
+![users h2][dblog]
+
 Configuration of H2 database is located in: [application.properties](/src/main/resources/application.properties)
 ```
 spring.h2.console.enabled=true
@@ -88,8 +90,6 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 so database user is "sa" and no password and our JDBC url is: **jdbc:h2:mem:testdb** remember replace 
 default adress with following. Now we can log in and open APICLIENT database:
 
-![users h2][usersh2]
-
 Like you see we have two users with BCrypted passwords but we know users passwords from 
 [DemoDataLoader](/src/main/java/pl/szymanski/pawel/basicauth/DemoDataLoader.java) , both accounts USER and ADMIN are 
 secured with password TESTPAS123
@@ -97,6 +97,8 @@ secured with password TESTPAS123
 Now we can add BasicAuth data to our request in Postman:
 
 ![admin request][admin200]
+
+SUCCESS! AUTHORIZATION IS VALID AND WE HAVE HELLO ADMIN ANSWER!
 
 
 ##### REMARKS
@@ -106,4 +108,5 @@ Now we can add BasicAuth data to our request in Postman:
 [logo]: /gitImages/pass.png
 [postman1]: /gitImages/postman1.png
 [usersh2]: /gitImages/usersh2.png
+[dblog]: /gitImages/h2login.png
 [admin200]: /gitImages/admin200.png
