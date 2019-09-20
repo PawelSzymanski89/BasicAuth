@@ -71,8 +71,32 @@ we have result 401 because we don't set any authorization to our request, we hav
 [@Component](/src/main/java/pl/szymanski/pawel/basicauth/DemoDataLoader.java) to testing data loading - it's CommandLineRunner, by calling this interface you can load sample data 
 or other things because CommandLineRunner is starting after SpringBoot context initialization. 
 
+Let's check our sample users in H2 database:
+we can do it by browser, just put go to adress: http://localhost:8080/h2-console/ and like you see now you dont have 
+browser request about user and password because we used .permitAll() method on /h2-console endpoint.
 
+Configuration of H2 database is located in: [application.properties](/src/main/resources/application.properties)
+```
+spring.h2.console.enabled=true
+spring.jpa.show-sql=true
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+```
+so database user is "sa" and no password and our JDBC url is: **jdbc:h2:mem:testdb** remember replace 
+default adress with following. Now we can log in and open APICLIENT database:
 
+![users h2][usersh2]
+
+Like you see we have two users with BCrypted passwords but we know users passwords from 
+[DemoDataLoader](/src/main/java/pl/szymanski/pawel/basicauth/DemoDataLoader.java) , both accounts USER and ADMIN are 
+secured with password TESTPAS123
+
+Now we can add BasicAuth data to our request in Postman:
+
+![admin request][admin200]
 
 
 ##### REMARKS
@@ -81,3 +105,5 @@ or other things because CommandLineRunner is starting after SpringBoot context i
 
 [logo]: /gitImages/pass.png
 [postman1]: /gitImages/postman1.png
+[usersh2]: /gitImages/usersh2.png
+[admin200]: /gitImages/admin200.png
