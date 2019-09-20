@@ -90,6 +90,8 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 so database user is "sa" and no password and our JDBC url is: **jdbc:h2:mem:testdb** remember replace 
 default adress with following. Now we can log in and open APICLIENT database:
 
+![users][usersh2]
+
 Like you see we have two users with BCrypted passwords but we know users passwords from 
 [DemoDataLoader](/src/main/java/pl/szymanski/pawel/basicauth/DemoDataLoader.java) , both accounts USER and ADMIN are 
 secured with password TESTPAS123
